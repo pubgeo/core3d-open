@@ -74,21 +74,21 @@ Public satellite images for our test sites are available in the [CORE3D data set
 
 ### Clone COLMAP and VisSat repos, make a few modifications, and run on our data
 
-** Clone the GitHub repo for COLMAP that has been adapted for [VisSat](https://github.com/Kai-46/ColmapForVisSat). Comment out the lines where ceres-solver is installed within the ubuntu1804_install_dependencies.sh script (lines 26-35). Install [ceres-solver 1.14.0](https://github.com/ceres-solver/ceres-solver/releases) (not the latest version).
+* Clone the GitHub repo for COLMAP that has been adapted for [VisSat](https://github.com/Kai-46/ColmapForVisSat). Comment out the lines where ceres-solver is installed within the ubuntu1804_install_dependencies.sh script (lines 26-35). Install [ceres-solver 1.14.0](https://github.com/ceres-solver/ceres-solver/releases) (not the latest version).
 
-** Follow the README instructions to install dependencies and install COLMAP.
+* Follow the README instructions to install dependencies and install COLMAP.
 
-** Clone the GitHub repo for [VisSat](https://github.com/Kai-46/VisSatSatelliteStereo).
+* Clone the GitHub repo for [VisSat](https://github.com/Kai-46/VisSatSatelliteStereo).
 
-** Within colmap_mvs_commands.py, add the following parameter as part of the `cmd` variable in the `run_photometeric_mvs` and `run_consistency_check` methods: `--PatchMatchStereo.max_image_size 5000`.
+* Within colmap_mvs_commands.py, add the following parameter as part of the `cmd` variable in the `run_photometeric_mvs` and `run_consistency_check` methods: `--PatchMatchStereo.max_image_size 5000`.
 
-** Within aggregate_3d.ply, add the following parameter as part of the `cmd` variable in the `fuse` method: `--StereoFusion.min_num_pixels 2`.
+* Within aggregate_3d.ply, add the following parameter as part of the `cmd` variable in the `fuse` method: `--StereoFusion.min_num_pixels 2`.
 
-** Within image_crop.py, assign `overlap_thresh` to 0.2 instead of 0.8.
+* Within image_crop.py, assign `overlap_thresh` to 0.2 instead of 0.8.
 
-** Follow the README instructions for the repo to install dependencies and run VisSat.
+* Follow the README instructions for the repo to install dependencies and run VisSat.
 
-** The following JSONs are the configurations used in “aoi_config/MVS3DM_Explorer.json” for the Jacksonville, UCSD and Omaha test sites used for the competition:
+* The following JSONs are the configurations used in “aoi_config/MVS3DM_Explorer.json” for the Jacksonville, UCSD and Omaha test sites used for the competition:
 
 ```
 Jacksonville:
@@ -178,7 +178,7 @@ Omaha:
 
 ### Download point cloud bilateral filter, and post-process the point clouds
 
-** Convert the resulting .ply point cloud file into a .txt file using the following code snippet.
+* Convert the resulting .ply point cloud file into a .txt file using the following code snippet.
 
 ```
 from lib.ply_np_converter import ply2np, np2ply
@@ -188,36 +188,36 @@ with open(‘converted_file.txt', 'w') as f:
     csv.writer(f, delimiter=' ').writerows(points)
 ```
 
-** Fill in the gaps in the point cloud file using densify.py provided in this repo.
+* Fill in the gaps in the point cloud file using densify.py provided in this repo.
 
-** Install the [point cloud bilateral filter](https://www.ipol.im/pub/art/2017/179/). Run the bilateral filter on the converted text file using the following parameters: -N 1 -r 2 -n 2
+* Install the [point cloud bilateral filter](https://www.ipol.im/pub/art/2017/179/). Run the bilateral filter on the converted text file using the following parameters: -N 1 -r 2 -n 2
 
-** Use LASTools to convert the resulting text file into LAS format, and also add the appropriate coordinate reference point. Example command: `wine txt2las -i filled_filtered_file.txt -utm 11S -target_utm 11S -o las_file_utm11S.las`
+* Use LASTools to convert the resulting text file into LAS format, and also add the appropriate coordinate reference point. Example command: `wine txt2las -i filled_filtered_file.txt -utm 11S -target_utm 11S -o las_file_utm11S.las`
 
 
 ###	Download Danesfield repo, make a few modifications, and run on our data
 
 *Note:* The following instructions are specifically for running Danesfield inside the Docker container. You may disregard the following instructions and follow other guidelines if running Danesfield outside the Docker container.
 
-** Make changes to the Dockerfile provided in this repo.
+* Make changes to the Dockerfile provided in this repo.
 
-** Remove gdal installation step in conda_env.yml, and instead install gdal inside the Docker container in the subsequent steps.
+* Remove gdal installation step in conda_env.yml, and instead install gdal inside the Docker container in the subsequent steps.
 
-** Make changes to tf_interpolate_compile.sh, tf_grouping_compile.sh, tf_sampling_compile.sh. Edited versions are provided in this repo.
+* Make changes to tf_interpolate_compile.sh, tf_grouping_compile.sh, tf_sampling_compile.sh. Edited versions are provided in this repo.
 
-** Follow the README within the “danesfield/geon_fitting” folder.
+* Follow the README within the “danesfield/geon_fitting” folder.
 
-** Modify buildings_to_dsm.py. Edited version is provided in this repo.
+* Modify buildings_to_dsm.py. Edited version is provided in this repo.
 
-** Make changes to run_danesfield.py. Edited version is provided in this repo.
+* Make changes to run_danesfield.py. Edited version is provided in this repo.
 
-** Build the Docker image by running `docker build -t core3d/danesfield .`
+* Build the Docker image by running `docker build -t core3d/danesfield .`
 
-** Start the Docker container using the following command: `sudo NV_GPU=0 nvidia-docker run -it -v /path/to/core3d_dataset/:/core3d_dataset -v /path/to/Danesfield/repo:/danesfield core3d/danesfield`
+* Start the Docker container using the following command: `sudo NV_GPU=0 nvidia-docker run -it -v /path/to/core3d_dataset/:/core3d_dataset -v /path/to/Danesfield/repo:/danesfield core3d/danesfield`
 
-** Modify “input.ini” appropriately.
+* Modify “input.ini” appropriately.
 
-** Run the following commands within the Docker container:
+* Run the following commands within the Docker container:
 
 ```
 source /opt/conda/etc/profile.d/conda.sh 
