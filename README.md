@@ -16,12 +16,14 @@ This competition is provided as a public leaderboard only. All input data is ava
 
 Any scientific publication using the data shall refer to the following paper:
 
+```
 @inproceedings{hagstrom2021igarss,
 	author={S. Hagstrom and H. W. Pak and S. Ku and S. Wang and G. Hager and M. Brown},
 	booktitle={2021 IEEE Geoscience and Remote Sensing Symposium}, 
 	title={Cumulative assessment for urban 3d modeling}, 
 	year={2021}
 }
+```
 
 ## Acknowledgements
 
@@ -31,6 +33,7 @@ We thank the developers of VisSat and Danesfield for their assistance and advice
 
 References for open source works used to develop this baseline solution are cited below:
 
+```
 @inproceedings{Leotta_2019_CVPR_Workshops,
 	author = {Leotta, Matthew J. and Long, Chengjiang and Jacquet, Bastien and Zins, Matthieu and Lipsa, Dan and Shan, Jie and Xu, Bo and Li, Zhixin and Zhang, Xu and Chang, Shih-Fu and Purri, Matthew and Xue, Jia and Dana, Kristin},
 	title = {Urban Semantic 3D Reconstruction From Multiview Satellite Imagery},
@@ -55,6 +58,7 @@ References for open source works used to develop this baseline solution are cite
     year    = {2017},
     doi     = {10.5201/ipol.2017.179},
 }
+```
 
 ## Instructions for Reproducing the Baseline Results
 
