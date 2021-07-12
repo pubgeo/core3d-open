@@ -225,3 +225,13 @@ conda activate core3d
 pip install GDAL==$(gdal-config --version) --global-option=build_ext --global-option="-I/usr/include/gdal"
 python tools/run_danesfield.py input.ini 
 ```
+### Convert output file formats for evaluation on CodaLab
+
+The DSM and CLS files produced are GeoTIFF, and pixel resolution can vary depending on your Danesfield options. The CodaLab evaluation function expects PNG images with geotags specified in JSON files, and pixel resolution should be 50cm. These constraints ensure that files are small and can be uploaded quickly. To convert your GeoTIFF files for submission, run the convert_for_eval.py script in this repo for each of the three test sites and then zip up the ouput nine files into submission.zip for upload.
+
+```
+python convert_for_eval.py UCSD_DSM.tif
+python convert_for_eval.py OMAHA_DSM.tif
+python convert_for_eval.py JAX_DSM.tif
+```
+
