@@ -4,11 +4,11 @@
 
 ## Competition Overview
 
-The [CORE3D Open Evaluation](https://competitions.codalab.org/) CodaLab competition offers a public leaderboard to track progress toward accurate urban 3D building modeling with satellite images. IARPA’s CORE3D program has released satellite image data to enable public research, hosted by [SpaceNet data sets](https://spacenet.ai/core3d/). JHU/APL has developed a baseline solution combining open source projects and [cumulative assessment](https://arxiv.org/abs/2105.08229) metrics for evaluating performance. Detailed instructions are provided below for reproducing our baseline results.
+The [CORE3D Open Evaluation](https://competitions.codalab.org/) CodaLab competition offers a public leaderboard to track progress toward accurate urban 3D building modeling with satellite images. IARPA’s CORE3D program has released satellite image data to enable public research, hosted by [SpaceNet data sets](https://spacenet.ai/core3d/). JHU/APL has developed a [baseline solution](https://arxiv.org/abs/2105.08229) combining open source projects. Detailed instructions are provided below for reproducing our baseline results.
 
 ## Metric Evaluation
 
-For metric evaluation, 3D models must be provided as a 50cm raster Digital Surface Model (DSM) with valid height values (meters) for buildings and a raster classification (CLS) map indicating which pixels are labeled building. Submissions will be evaluated with an intersection over union (IOU) score with true positives requiring semantic correctness, height correctness (within one meter), and roof slope correctness (within five degrees). Examples are provided in the CodaLab competition bundle.
+For metric evaluation, 3D models must be provided as a 50cm raster Digital Surface Model (DSM) with valid height values (integer decimeters) for buildings and a raster classification (CLS) map indicating which pixels are labeled building. Submissions will be evaluated with an intersection over union (IOU) score with true positives requiring semantic correctness, height correctness (within one meter), and roof slope correctness (within five degrees). Examples are provided in the CodaLab competition bundle. Instructions are provided below for formatting files for submission.
 
 ## Terms and Conditions
 
