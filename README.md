@@ -62,7 +62,7 @@ References for open source works used to develop this baseline solution are cite
 
 ## Instructions for Reproducing the Baseline Results
 
-Please follow these instructions to reproduce our baseline results from the IGARSS paper. Baseline scores for Jacksonville, Florida and San Diego, California match the paper. Scores for Omaha, Nebraska are slightly better than those shown in the paper because the geographic bounding box is slightly different. Also, Kitware is actively developing Danesfield, so we expect other changes that will improve performance. If you find inconsistencies in our instructions versus the latest Danesfield release, please let us know and we'll try to keep this current.
+Please follow these instructions to reproduce our baseline results from the IGARSS paper. Baseline scores will differ slightly from those in the paper due to minor edits in the scoring function to run on CodaLab. Also, Kitware is actively developing Danesfield, so we expect other changes that will improve performance. If you find inconsistencies in our instructions versus the latest Danesfield release, please let us know and we'll try to keep this current.
 
 ### Download the competition bundle
 
