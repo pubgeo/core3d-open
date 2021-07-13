@@ -4,7 +4,7 @@
 
 ## Competition Overview
 
-The [CORE3D Open Evaluation](https://competitions.codalab.org/) CodaLab competition offers a public leaderboard to track progress toward accurate urban 3D building modeling with satellite images. IARPA’s CORE3D program has released satellite image data to enable public research, hosted by [SpaceNet data sets](https://spacenet.ai/core3d/). JHU/APL has developed a [baseline solution](https://arxiv.org/abs/2105.08229) combining open source projects. Detailed instructions are provided below for reproducing our baseline results.
+The [CORE3D Open Evaluation](https://competitions.codalab.org/) CodaLab competition offers a public leaderboard to track progress toward accurate urban 3D building modeling with satellite images. IARPA’s CORE3D program has released satellite image data to enable public research, hosted by [SpaceNet data sets](https://spacenet.ai/core3d/). JHU/APL has developed a [baseline solution](https://arxiv.org/abs/2107.04622) combining open source projects. Detailed instructions are provided below for reproducing our baseline results.
 
 ## Metric Evaluation
 
