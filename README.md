@@ -193,36 +193,12 @@ with open(‘converted_file.txt', 'w') as f:
 * Use LASTools to convert the resulting text file into LAS format, and also add the appropriate coordinate reference point. Example command: `wine txt2las -i filled_filtered_file.txt -utm 11S -target_utm 11S -o las_file_utm11S.las`
 
 
-###	Download Danesfield repo, make a few modifications, and run on our data
+### Clone Kitware's Danesfield repo and run on our data
 
-*Note:* The following instructions are specifically for running Danesfield inside the Docker container. You may disregard the following instructions and follow other guidelines if running Danesfield outside the Docker container.
+* Clone the GitHub repo for [Danesfield](https://github.com/Kitware/Danesfield).
 
-* Make changes to the Dockerfile provided in this repo.
+* Run Danesfield using the converted LAS point cloud file and its corresponding images (and optionally the corresponding RPC files).
 
-* Remove gdal installation step in conda_env.yml, and instead install gdal inside the Docker container in the subsequent steps.
-
-* Make changes to tf_interpolate_compile.sh, tf_grouping_compile.sh, tf_sampling_compile.sh. Edited versions are provided in this repo.
-
-* Follow the README within the “danesfield/geon_fitting” folder.
-
-* Modify buildings_to_dsm.py. Edited version is provided in this repo.
-
-* Make changes to run_danesfield.py. Edited version is provided in this repo.
-
-* Build the Docker image by running `docker build -t core3d/danesfield .`
-
-* Start the Docker container using the following command: `sudo NV_GPU=0 nvidia-docker run -it -v /path/to/core3d_dataset/:/core3d_dataset -v /path/to/Danesfield/repo:/danesfield core3d/danesfield`
-
-* Modify “input.ini” appropriately.
-
-* Run the following commands within the Docker container:
-
-```
-source /opt/conda/etc/profile.d/conda.sh 
-conda activate core3d
-pip install GDAL==$(gdal-config --version) --global-option=build_ext --global-option="-I/usr/include/gdal"
-python tools/run_danesfield.py input.ini 
-```
 ### Convert output file formats for evaluation on CodaLab
 
 The DSM and CLS files produced are GeoTIFF, and pixel resolution can vary depending on your Danesfield options. The CodaLab evaluation function expects PNG images with geotags specified in JSON files, and pixel resolution should be 50cm. These constraints ensure that files are small and can be uploaded quickly. To convert your GeoTIFF files for submission, run the convert_for_eval.py script in this repo for each of the three test sites and then zip up the ouput nine files into submission.zip for upload.
